@@ -1,3 +1,5 @@
+// This file is used to configure the appwrite client and services
+
 import conf from "../conf/conf";
 import { Client, ID, Databases, Storage, Query } from "appwrite";
 

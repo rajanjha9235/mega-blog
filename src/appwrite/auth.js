@@ -1,3 +1,5 @@
+// This file is used for authentication and user management.
+
 import conf from '../conf/conf.js'
 
 import {Client, Account, ID} from 'appwrite'
@@ -20,9 +22,10 @@ export class AuthService{
 
             if (userAccount){
                 // call another method to create a profile
+                return this.login({email,password})
             }
             else{
-                return;
+                return userAccount;
             }
         }
         catch(error){
@@ -35,6 +38,7 @@ export class AuthService{
         try{
             return await this.account.createEmailSession(email,password);
         }catch(error){
+            console.log("Appwrite Service : Login : Error",error);
             throw error;
         }
     }
