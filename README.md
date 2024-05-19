@@ -77,6 +77,12 @@ Mega Blog is a full-fledged blog application built with React.js that offers the
   5. `VITE_APPWRITE_BUCKET_ID=""`
   6. `VITE_TINY_EDITOR_API_KEY=""`
 
+### Contributing
+
+Contributions are welcome! If you find any issues or have suggestions for improvements, feel free to open an issue or submit a pull request.
+### License
+This project is licensed under the Apache License - see the [LICENSE](https://github.com/rajanjha9235/mega-blog/LICENSE) file for details.
+
 ### Additional Notes
 
 - Consider adding unit tests and end-to-end tests for robust quality assurance.
