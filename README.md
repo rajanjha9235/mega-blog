@@ -1,20 +1,37 @@
 # Mega Blog
 Welcome to the GitHub repository for the Mega Blog App! This repository contains the source code for a powerful blogging platform equipped with essential features like user authentication, post management, and content creation. It utilizes Appwrite as the backend service for managing the database and storage operations.
 
+![image](https://github.com/rajanjha9235/mega-blog/assets/138964806/e27c8a52-05f9-4b5f-a2e5-ea9c1f041fdd)
+
+
 ## Introduction
 Mega Blog is a full-fledged blog application built with React.js that offers the following features:
 
 - **User Management:**
   - Users can register for new accounts using a signup form with validation (powered by React Hook Form).
+  - ![image](https://github.com/rajanjha9235/mega-blog/assets/138964806/32fdc3b6-9c12-4855-87b0-dc1c78d4148e)
+
   - Existing users can log in securely using Appwrite for authentication.
+  - ![image](https://github.com/rajanjha9235/mega-blog/assets/138964806/2f8f67d4-4e00-4a07-be2b-7ceed5556d12)
+
   - Users can log out seamlessly, clearing authentication tokens.
 - **Post Creation:**
   - Authorized users can create new blog posts, crafting content with ease using a rich text editor (like TinyMCE).
+  - ![image](https://github.com/rajanjha9235/mega-blog/assets/138964806/c3fc8adc-4315-4ec4-b795-598c5be67e36)
+
   - Post data is stored securely in Appwrite's database.
 - **Post Listing:**
   - A clear and organized list displays all published blog posts.
   - Each post showcases the title, author, and a snippet of the content.
   - Consider implementing pagination or sorting for extensive post management (optional).
+  - ![image](https://github.com/rajanjha9235/mega-blog/assets/138964806/701666b3-f212-4b54-b21d-ffd8dd6fbd2a)
+- **Update Post:**
+  - Users can update their existing post if the same user that is Logged in and have their own post.
+  - User can also delete their own post.
+  - ![image](https://github.com/rajanjha9235/mega-blog/assets/138964806/e9c7ed39-f54a-4e4a-95f8-adabaac8f645)
+
+  - ![image](https://github.com/rajanjha9235/mega-blog/assets/138964806/afcee681-670a-4056-a2e1-4a319bb7a86a)
+
 - **Route Management:**
   - The application leverages react-router-dom for efficient routing between different sections.
   - Specific routes handle authentication (login, logout), post creation, and post listing.
