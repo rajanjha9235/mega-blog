@@ -20,7 +20,7 @@ export default function AllPosts(){
                 <div className='flex flex-wrap'>
 
                     {posts.map((post) => (
-                        <div key={post.$id} className='p-22 w-1/4'>
+                        <div key={post.$id} className='p-2 w-1/4 animate-mymove'>
                             <PostCard {...post}/>
                         </div>
                     ))}

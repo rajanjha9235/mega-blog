@@ -1,6 +1,4 @@
-// This file is used for authentication and user management.
-
-import conf from '../conf/conf.js'
+import conf from '../conf/conf.js' // For the secret keys
 
 import {Client, Account, ID} from 'appwrite'
 
@@ -29,6 +27,7 @@ export class AuthService{
             }
         }
         catch(error){
+            console.log("APPwrite Error : CreateAccount :",error.message);
             throw error;
         }
     }
@@ -36,26 +35,30 @@ export class AuthService{
     // Login to an existing account
     async login({email,password}){
         try{
-            return await this.account.createEmailSession(email,password);
+            return await this.account.createEmailPasswordSession(email,password)
         }catch(error){
-            console.log("Appwrite Service : Login : Error",error);
+            console.log("Appwrite Service : Login : Error : ",error);
             throw error;
         }
     }
 
+    // Get the currently signed in user
     async getCurrentUser(){
         try{
             return await this.account.get();
         }catch(error){
-            throw error;
+            console.log("AppWrite auth.js : getCurrentUser",error.message);
+            //throw error;
         }
         return null;
     }
 
+    // Logout of the current session
     async logout(){
         try{
             return await this.account.deleteSessions();
         }catch(error){
+            console.log("AppWrite auth.js : logout : error : ",error.message);
             throw error;
         }
     }

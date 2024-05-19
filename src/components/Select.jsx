@@ -6,7 +6,7 @@ function Select({
     className='',
     ...props
 },ref){
-    const id = useId()
+    const id = useId(); // To generate a unique id for the select element
 
     return (
         <div className="w-full">

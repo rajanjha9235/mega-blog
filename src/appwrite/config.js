@@ -16,6 +16,7 @@ export class Service{
         this.bucket = new Storage(this.client);
     }
 
+    // Create a new Post
     async createPost({title,slug,content,featuredImage,status, userId}){
         try {
             return await this.databases.createDocument(
@@ -31,11 +32,13 @@ export class Service{
                 }
             )
         } catch (error) {
+            console.log("Appwrite serive :: createPost :: error",error.message);
             throw error;
         }
     }
 
 
+    // Update the existing post
     async updatePost(slug,{title,content,featuredImage,status}){
         try {
             return await this.databases.updateDocument(
@@ -50,10 +53,12 @@ export class Service{
                 }
             )
         } catch (error) {
+            console.log("Appwrite Service : updatePost : error",error.message);
             throw error
         }
     }
 
+    // Delete the post with the given slug
     async deletePost(slug){
         try {
             await this.databases.deleteDocument(
@@ -63,12 +68,13 @@ export class Service{
             )
             return true
         } catch (error) {
-            throw error
+            console.log("Appwrite Service : deletePost : error",error.message);
             return false
         }
     }
 
 
+    // Get the post with the given slug
     async getPost(slug){
         try {
             return await this.databases.getDocument(
@@ -77,11 +83,12 @@ export class Service{
                 slug
             )
         } catch (error) {
-            throw error
+            console.log("Appwrite Service : getPost : error",error.message);
+            return false
         }
     }
 
-
+    // Get all the posts whose status is active
     async getPosts(queries = [Query.equal('status','active')]){
         try {
             return await this.databases.listDocuments(
@@ -90,11 +97,12 @@ export class Service{
                 queries
             )
         } catch (error) {
-            throw error
+            console.log("Appwrite serive :: getPosts :: error", error.message);
+            throw error;
         }
     }
 
-    // File Upload Service
+    // File Upload Service 
     async uploadFile(file){
         try {
             return await this.bucket.createFile(
@@ -103,22 +111,26 @@ export class Service{
                 file
             )
         } catch (error) {
-            throw error
+            console.log("Appwrite serive :: uploadFile :: error : ", error.message);
+            return false
         }
     }
 
+    // Delete the file with the given fileId
     async deleteFile(fileId){
         try {
             await this.bucket.deleteFile(
                 conf.appwriteBucketId,
                 fileId
             )
-            return true
+            return true;
         } catch (error) {
-            throw error;
+            console.log("Appwrite serive :: deleteFile :: error", error.message);
+            return false;
         }
     }
 
+    // Get the file preview with the given fileId
     getFilePreview(fileId){
         return this.bucket.getFilePreview(
             conf.appwriteBucketId,

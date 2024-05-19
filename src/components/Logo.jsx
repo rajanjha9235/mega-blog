@@ -1,6 +1,8 @@
+// Desc: Logo component
+import logo from "/home/rajanjha/Pictures/logo.png";
 function Logo({width = '100px'}){
     return(
-        <div>Logo</div>
+        <img src={logo} alt="Logo Image" width={width} className="rounded-full animate-mymove"/>
     )
 }
 

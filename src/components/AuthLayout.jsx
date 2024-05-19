@@ -4,10 +4,10 @@ import { useNavigate } from "react-router"
 
 
 export default function Protected({children,authentication = true}){
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const [loader,setLoader] = useState(true);
 
-    const authStatus = useSelector(state => state.auth.status)
+    const authStatus = useSelector(state => state.auth.status);
 
     useEffect(() => {
         // ToDo : Make it more easy to understand

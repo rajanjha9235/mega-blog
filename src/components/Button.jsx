@@ -1,5 +1,6 @@
+// This file is a simple button component that can be used in the project.
 
-
+// A separate Button component is created to make the code more readable and reusable.
 function Button({
     children,
     type = 'button',

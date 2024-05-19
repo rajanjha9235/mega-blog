@@ -15,7 +15,7 @@ function App() {
     .then((userData) => {
 
       if (userData){
-        dispatch(login({userData}))
+        dispatch(login(userData)) // {userData}
       }
       else{
         dispatch(logout())
@@ -26,22 +26,19 @@ function App() {
   },[])
 
 
-  if (!loading){
-    return (
-      <div className='min-h-screen flex flex-wrap content-between bg-gray-400'>
+  return !loading ? (
+    <div className='min-h-screen flex flex-wrap content-between bg-orange-200'>
       <div className='w-full block'>
         <Header />
+
         <main>
-          Todo : <Outlet/>
+          <Outlet />
         </main>
-        <Footer/>
+
+        <Footer />
       </div>
     </div>
-    )
-  }
-  else{
-    return null
-  }
+  ) : null
 }
 
 export default App
